@@ -8,14 +8,17 @@
 
 ## About Laravel-cms-1.0版本
 
+复制一份.nev 修改数据库配置文件
+
 ```
 cp .env.example .env
 ```
 
 .env文件添加数据库前缀
+
 DB_PREFIX=gat_
 
-复制一份.nev 修改数据库配置文件
+
 
 ```
 composer  install
@@ -23,7 +26,9 @@ composer  install
 
 执行下面代码添加key
 
+```
 php artisan key:generate
+```
 
 数据库文件存在 bak/msc_gat.sql  
 
