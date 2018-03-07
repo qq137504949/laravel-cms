@@ -8,4 +8,14 @@
 
 ## About Laravel-cms-1.0版本
 
+cp .env.example .env
+复制一份.nev 修改数据库配置文件
+composer  install
+数据库文件存在 bak/msc_gat.sql  
 
+## 功能介绍
+权限管理
+用户管理
+管理员日志
+后台地址xxx.com/admin
+账号:root 密码sudongxu
