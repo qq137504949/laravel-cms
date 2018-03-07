@@ -1,0 +1,10 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/reset.css": "/css/reset.css",
+    "/css/mixin.css": "/css/mixin.css",
+    "/css/const.css": "/css/const.css",
+    "/css/iconfont.css": "/css/iconfont.css",
+    "/js/utils/utils.js": "/js/utils/utils.js",
+    "/js/utils/store.js": "/js/utils/store.js"
+}

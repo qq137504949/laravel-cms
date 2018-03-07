@@ -1,0 +1,15 @@
+composer require cyvelnet/laravel5-fractal   //格式化数据
+composer require overtrue/laravel-wechat    //微信
+composer require zhangmazi/laravel-ueditor //百度编辑器
+
+composer require latrell/alipay           //支付宝
+php artisan vendor:publish --provider="Latrell\Alipay\AlipayServiceProvider"
+
+
+composer require overtrue/laravel-wechat
+
+
+php artisan vendor:publish --provider="Overtrue\LaravelWechat\ServiceProvider"
+
+
+composer require overtrue/laravel-wechat 2.1.*
