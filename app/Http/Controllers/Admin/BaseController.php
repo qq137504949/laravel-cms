@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Goods;
 use App\Models\Purchase;
 use App\Models\Sale;
+use App\Models\System;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\URL;
 
 class BaseController extends Controller
 {
+    protected $system;
+    public function __construct()
+    {
+        $this->system = System::find(1);
+        view()->share(['system'=>$this->system]);
+    }
+
     /**
      * @param $message 消息
      * @param string $url  路径

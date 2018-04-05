@@ -27,7 +27,7 @@ class SystemController extends BaseController
                 if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
                     return $this->showMessage('图片格式png,jpg,gif,jpeg');
                 }
-                $post['logo'] = $this->uploadImg($file);
+                $post['logo'] = $this->uploadImg($file,'logo');
                 $logo= public_path().'/'.$system->logo;
                 // 图片存在的删除图片
                 if(is_file($logo)){

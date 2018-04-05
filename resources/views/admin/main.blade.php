@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
 
-    <title> 郑州赢鸿管理系统</title>
+    <title> {{$system->title}}管理系统</title>
 
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -37,7 +37,7 @@
                                 <span class="clear">
                                     <span class="block m-t-xs" style="font-size:20px;">
                                         {{--<i class="fa fa-area-chart"></i>--}}
-                                        <strong class="font-bold">郑州赢鸿</strong>
+                                        <strong class="font-bold">{{$system->title}}</strong>
                                     </span>
                                 </span>
                         </a>

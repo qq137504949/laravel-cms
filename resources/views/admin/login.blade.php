@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title> 郑州赢鸿管理系统- 登录</title>
+    <title> {{$system->title}}管理系统- 登录</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link href="{{asset('system/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -30,7 +30,7 @@
         <div class="col-sm-12">
             <form method="post" action="{{url('admin/login_act')}}">
                 <h4 class="no-margins">登录：</h4>
-                <p class="m-t-md">郑州赢鸿后台管理系统</p>
+                <p class="m-t-md">{{$system->title}}后台管理系统</p>
                 <input type="text" name="user_name" value="{{old('user_name')}}" class="form-control uname" placeholder="用户名" />
                 <input type="password" name="password" value="{{old('password')}}"  class="form-control pword m-b" placeholder="密码" />
                 <input type="checkbox" name="remember" value="1"> 记住密码
@@ -43,7 +43,7 @@
     </div>
     <div class="signup-footer">
         <div class="pull-left">
-            &copy; 关爱通CMS技术员
+            &copy; {{$system->title}}
         </div>
     </div>
 </div>
