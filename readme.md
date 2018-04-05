@@ -16,7 +16,7 @@ cp .env.example .env
 
 .env文件添加数据库前缀
 
-DB_PREFIX=gat_
+DB_PREFIX=fang_
 
 
 
@@ -30,7 +30,7 @@ composer  install
 php artisan key:generate
 ```
 
-数据库文件存在 bak/msc_gat.sql  
+数据库文件存在 bak/fang.sql  
 
 
 ## 功能介绍
