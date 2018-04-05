@@ -3,7 +3,7 @@
     <div class="wrapper wrapper-content">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h4>欢迎使用关爱通CMS系统管理系统</h4>
+                <h4>欢迎使用郑州赢鸿系统管理系统</h4>
             </div>
             <div class="ibox">
                 <div class="ibox-title">

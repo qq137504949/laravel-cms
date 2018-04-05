@@ -100,7 +100,9 @@
                 $.ajax({
                     url:'user/'+id,
                     type:'DELETE',
-                    data:{ _token: '{{csrf_token()}}' },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    },
                     success:function (data) {
                         if(data == '0'){
                             swal("删除成功！", "您已经永久删除了这条信息。", "success");

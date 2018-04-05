@@ -1,6 +1,6 @@
 ﻿/*
 SQLyog  v12.2.6 (64 bit)
-MySQL - 5.5.53 : Database - gat
+MySQL - 5.5.53 : Database - fang
 *********************************************************************
 */
 /*!40101 SET NAMES utf8 */;
@@ -11,15 +11,15 @@ MySQL - 5.5.53 : Database - gat
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`gat` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`fang` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `gat`;
+USE `fang`;
 
-/*Table structure for table `gat_admin` */
+/*Table structure for table `fang_admin` */
 
-DROP TABLE IF EXISTS `gat_admin`;
+DROP TABLE IF EXISTS `fang_admin`;
 
-CREATE TABLE `gat_admin` (
+CREATE TABLE `fang_admin` (
   `admin_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -35,15 +35,15 @@ CREATE TABLE `gat_admin` (
   UNIQUE KEY `admin_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
-/*Data for the table `gat_admin` */
+/*Data for the table `fang_admin` */
 
-insert  into `gat_admin`(`admin_id`,`user_name`,`email`,`password`,`remember_token`,`created_at`,`updated_at`,`admin_login_time`,`admin_login_num`,`admin_is_super`,`admin_gid`) values (1,'root','137504949@qq.com','$2y$10$Lxf7aWAPtAruUTBS.7VBP.CRjobfsngn7gb3MoO7zJn8CjOt/6c2u','vPjgkMwQvczizc38gWAQC4tlFlCqFofXEfqts5NVW6uu4y0wM8ZkwGsRja3S','2017-09-25 08:04:57','2017-09-28 05:03:33',NULL,0,1,0);
+insert  into `fang_admin`(`admin_id`,`user_name`,`email`,`password`,`remember_token`,`created_at`,`updated_at`,`admin_login_time`,`admin_login_num`,`admin_is_super`,`admin_gid`) values (1,'root','137504949@qq.com','$2y$10$Lxf7aWAPtAruUTBS.7VBP.CRjobfsngn7gb3MoO7zJn8CjOt/6c2u','vPjgkMwQvczizc38gWAQC4tlFlCqFofXEfqts5NVW6uu4y0wM8ZkwGsRja3S','2017-09-25 08:04:57','2017-09-28 05:03:33',NULL,0,1,0);
 
-/*Table structure for table `gat_admin_log` */
+/*Table structure for table `fang_admin_log` */
 
-DROP TABLE IF EXISTS `gat_admin_log`;
+DROP TABLE IF EXISTS `fang_admin_log`;
 
-CREATE TABLE `gat_admin_log` (
+CREATE TABLE `fang_admin_log` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `content` varchar(200) NOT NULL COMMENT '内容',
   `created_at` timestamp NULL DEFAULT NULL COMMENT '添加时间',
@@ -54,13 +54,13 @@ CREATE TABLE `gat_admin_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `gat_admin_log` */
+/*Data for the table `fang_admin_log` */
 
-/*Table structure for table `gat_admin_menus` */
+/*Table structure for table `fang_admin_menus` */
 
-DROP TABLE IF EXISTS `gat_admin_menus`;
+DROP TABLE IF EXISTS `fang_admin_menus`;
 
-CREATE TABLE `gat_admin_menus` (
+CREATE TABLE `fang_admin_menus` (
   `menu_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `menu_name` varchar(50) NOT NULL DEFAULT '',
   `menu_icon` varchar(20) DEFAULT '',
@@ -69,16 +69,16 @@ CREATE TABLE `gat_admin_menus` (
   PRIMARY KEY (`menu_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
-/*Data for the table `gat_admin_menus` */
+/*Data for the table `fang_admin_menus` */
 
-insert  into `gat_admin_menus`(`menu_id`,`menu_name`,`menu_icon`,`menu_link`,`parent_id`) values (1,'系统管理','fa-bar-chart-o','',0),(2,'角色管理',NULL,'admin/role',1),(3,'用户管理',NULL,'admin/user',1),(4,'菜单管理','','admin/menu',1),(5,'管理员日志',NULL,'admin/admin-log',1);
+insert  into `fang_admin_menus`(`menu_id`,`menu_name`,`menu_icon`,`menu_link`,`parent_id`) values (1,'系统管理','fa-bar-chart-o','',0),(2,'角色管理',NULL,'admin/role',1),(3,'用户管理',NULL,'admin/user',1),(4,'菜单管理','','admin/menu',1),(5,'管理员日志',NULL,'admin/admin-log',1);
 
 
-/*Table structure for table `gat_gadmin` */
+/*Table structure for table `fang_gadmin` */
 
-DROP TABLE IF EXISTS `gat_gadmin`;
+DROP TABLE IF EXISTS `fang_gadmin`;
 
-CREATE TABLE `gat_gadmin` (
+CREATE TABLE `fang_gadmin` (
   `gid` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `gname` varchar(50) DEFAULT NULL COMMENT '组名',
   `limits` text COMMENT '权限内容',
@@ -86,9 +86,9 @@ CREATE TABLE `gat_gadmin` (
   KEY `gid` (`gid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-/*Data for the table `gat_gadmin` */
+/*Data for the table `fang_gadmin` */
 
-insert  into `gat_gadmin`(`gid`,`gname`,`limits`) values (1,'后台管理员','1,2,3,4,5,17,18,19,20,23,25,21,22,24'),(2,'供应商','17,18,19'),(3,'出入库管理者','17,20,23');
+insert  into `fang_gadmin`(`gid`,`gname`,`limits`) values (1,'后台管理员','1,2,3,4,5,17,18,19,20,23,25,21,22,24'),(2,'供应商','17,18,19'),(3,'出入库管理者','17,20,23');
 
 /*Table structure for table `migrations` */
 

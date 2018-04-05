@@ -1,0 +1,986 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Hiragino Sans GB', 'PingFang SC', 'Heiti SC', 'Microsoft Yahei', 'Segoe UI', Tahoma, SimSun, sans-serif;
+}
+
+a,
+button,
+input,
+textarea {
+  outline: 0;
+}
+
+body,
+dd,
+dl,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+p,
+input,
+button,
+select,
+textarea,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  border: 0;
+}
+
+video {
+  display: inline-block;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clearfix:after {
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#topMain {
+  background-image: url(../images/banner.jpg);
+  background-color: #161616;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 620px;
+  background-attachment: fixed;
+  background-position: center 0;
+  display: block;
+  position: relative;
+}
+
+#topMain .header {
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+#topMain .header .logo {
+  float: left;
+  height: 30px;
+}
+
+#topMain .header .logo img {
+  display: block;
+}
+
+#topMain .header .nav {
+  float: right;
+  overflow: hidden;
+}
+
+#topMain .header .nav li {
+  float: left;
+  padding: 5px 15px;
+}
+
+#topMain .header .nav li a {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+#topMain .header .nav li a span {
+  font-family: FangSong;
+  font-size: 18px;
+  margin-left: 6px;
+}
+
+#topMain .header .nav li:hover a {
+  opacity: 0.9;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.9);
+}
+
+#topMain h1 {
+  color: #fff;
+  font-family: SimSun;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: center;
+  margin-top: 120px;
+}
+
+#topMain p {
+  color: #fff;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+}
+
+#topMain .search {
+  width: 800px;
+  overflow: hidden;
+  margin: 30px auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#topMain .search input[type='text'] {
+  float: left;
+  width: 680px;
+  height: 46px;
+  padding: 13px 30px;
+  color: #555;
+  font-size: 14px;
+  line-height: 20px;
+  border: none;
+  background-color: #fff;
+}
+
+#topMain .search input[type='submit'] {
+  width: 120px;
+  height: 46px;
+  padding: 13px 30px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #00ae66;
+}
+
+#topMain .search input[type='submit']:hover {
+  background-color: #019658;
+}
+
+.news {
+  width: 100%;
+  height: 66px;
+  overflow: hidden;
+  background-color: #09af61;
+}
+
+.news .txtScroll {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.news .txtScroll li {
+  width: 600px;
+  padding: 15px 0;
+}
+
+.news .txtScroll li a {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  line-height: 36px;
+}
+
+.news .txtScroll li a span {
+  float: right;
+}
+
+.news .txtScroll li a:hover {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.news .txtScroll li:nth-child(2n) a {
+  margin-left: 12px;
+}
+
+.news .txtScroll li:nth-child(2n+1) span {
+  margin-right: 12px;
+}
+
+.column {
+  margin: 30px auto;
+}
+
+.column .columnHead {
+  overflow: hidden;
+}
+
+.column .columnHead h2 {
+  float: left;
+  color: #333;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.column .columnHead h2 b {
+  color: #888;
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 5px;
+  vertical-align: baseline;
+}
+
+.column .columnHead a {
+  float: right;
+  color: #888;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.column .columnList ul {
+  margin-left: -12px;
+  margin-right: -12px;
+  overflow: hidden;
+}
+
+.column .columnList ul li {
+  float: left;
+  width: 25%;
+  padding: 12px;
+}
+
+.column .columnList ul li a {
+  display: block;
+  padding-bottom: 6px;
+  background-color: #fff;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+}
+
+.column .columnList ul li a img {
+  width: 100%;
+}
+
+.column .columnList ul li a h2 {
+  color: #333;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 8px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.column .columnList ul li a p {
+  color: #888;
+  font-size: 12px;
+  line-height: 24px;
+  padding: 0 12px;
+  overflow: hidden;
+}
+
+.trust {
+  padding: 30px 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.trust ul {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.trust ul li {
+  float: left;
+  width: 25%;
+}
+
+.trust ul li span {
+  display: block;
+  width: 42px;
+  height: 44px;
+  margin: 10px auto;
+}
+
+.trust ul li span img {
+  display: block;
+  width: 100%;
+}
+
+.trust ul li p {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+}
+
+.trust ul li label {
+  color: #888;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.footer {
+  height: 280px;
+  padding: 30px 0;
+  background: url(../images/footer-bg.jpg) no-repeat bottom;
+}
+
+.footer ul {
+  overflow: hidden;
+  padding: 10px 0;
+  border-bottom: 1px solid #666;
+}
+
+.footer ul li {
+  float: left;
+  margin-right: 16px;
+}
+
+.footer ul li a {
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.footer ul li:last-child {
+  float: right;
+  margin-right: 0;
+}
+
+.footer .info {
+  overflow: hidden;
+}
+
+.footer .info div {
+  float: left;
+  padding: 15px 0;
+}
+
+.footer .info div p {
+  color: #999;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.footer .info img {
+  float: right;
+  width: 120px;
+  margin: 20px 0;
+}
+
+#listTop {
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(13, 3, 9, 0.2);
+}
+
+#listTop .header {
+  padding: 15px 0;
+  overflow: hidden;
+}
+
+#listTop .header .nav {
+  float: left;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+#listTop .header .nav li {
+  float: left;
+  color: #333;
+  margin-right: 12px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+#listTop .header .nav li a {
+  display: block;
+  color: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+#listTop .header .nav li.active, #listTop .header .nav li:hover {
+  color: #fff;
+  border-radius: 3px;
+  background-color: #1aad68;
+}
+
+#listTop .search {
+  float: right;
+  width: 400px;
+  overflow: hidden;
+  margin: 5px auto;
+}
+
+#listTop .search input[type='text'] {
+  float: left;
+  width: 300px;
+  height: 40px;
+  padding: 10px 20px;
+  color: #333;
+  font-size: 13px;
+  line-height: 20px;
+  border: 1px solid #eee;
+  background-color: #f2f2f2;
+}
+
+#listTop .search input[type='submit'] {
+  width: 100px;
+  height: 40px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #00ae66;
+}
+
+#listTop .search input[type='submit']:hover {
+  background-color: #019658;
+}
+
+#list {
+  padding: 30px 0;
+}
+
+#list .filter {
+  padding: 15px 30px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(13, 3, 9, 0.2);
+}
+
+#list .filter label {
+  float: left;
+  width: 50px;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 46px;
+}
+
+#list .filter .filterGroup {
+  float: left;
+  width: 1090px;
+  height: 46px;
+  padding: 10px 15px;
+  overflow: hidden;
+}
+
+#list .filter .filterGroup.rizu, #list .filter .filterGroup.yuezu {
+  width: 840px;
+}
+
+#list .filter .filterGroup a {
+  float: left;
+  color: #666;
+  font-size: 14px;
+  line-height: 26px;
+  padding: 0 10px;
+  margin-right: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+#list .filter .filterGroup a:hover, #list .filter .filterGroup a.active {
+  color: #fff;
+  background-color: #1aad68;
+}
+
+#list .filter .zutab {
+  float: left;
+  width: 100px;
+  margin: 10px 0;
+  border-radius: 3px;
+  box-sizing: content-box;
+  background-color: #fff;
+  border: 1px solid #1aad68;
+}
+
+#list .filter .zutab a {
+  display: block;
+  float: left;
+  width: 50px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  color: #999;
+  font-size: 14px;
+}
+
+#list .filter .zutab a.active {
+  color: #fff;
+  background-color: #1aad68;
+}
+
+#fangList {
+  margin-bottom: 30px;
+}
+
+#fangList ul {
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(13, 3, 9, 0.2);
+}
+
+#fangList ul li {
+  padding: 30px;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+
+#fangList ul li .imgbox {
+  float: left;
+  width: 240px;
+  height: 160px;
+}
+
+#fangList ul li .imgbox img {
+  display: block;
+  width: 240px;
+  height: 160px;
+}
+
+#fangList ul li .fangInfo {
+  float: left;
+  width: 600px;
+  padding: 0 30px;
+}
+
+#fangList ul li .fangInfo h1 {
+  color: #333;
+  font-size: 22px;
+  line-height: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#fangList ul li .fangInfo p {
+  color: #666;
+  font-size: 16px;
+  line-height: 40px;
+  overflow: hidden;
+}
+
+#fangList ul li .fangInfo p span {
+  color: #7c95b2;
+  font-size: 14px;
+  padding: 5px 12px;
+  margin-right: 8px;
+  border-radius: 3px;
+  background-color: #f2f7fd;
+}
+
+#fangList ul li .fangCont {
+  float: left;
+  width: 300px;
+  height: 160px;
+  text-align: right;
+}
+
+#fangList ul li .fangCont .price {
+  color: #e4393c;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
+
+#fangList ul li .fangCont a {
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  line-height: 16px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  background-color: #00ae66;
+}
+
+#fangList ul li .fangCont a:hover {
+  background-color: #019658;
+  box-shadow: 0 1px 3px rgba(13, 3, 9, 0.2);
+}
+
+#fang {
+  padding: 30px 0;
+}
+
+#fang .fangCont {
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(13, 3, 9, 0.2);
+}
+
+#fang .fangCont h2 {
+  padding: 30px;
+  color: #333;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: bold;
+  border-radius: 2px 2px 0 0;
+  border-bottom: 1px solid #ebebeb;
+  background-color: #fcfcfc;
+}
+
+#fang .fangCont #slide {
+  position: relative;
+  float: left;
+  margin: 30px;
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+#fang .fangCont #slide .bd {
+  width: 600px;
+  height: 400px;
+}
+
+#fang .fangCont #slide .bd img {
+  display: block;
+  width: 600px;
+  height: 400px;
+}
+
+#fang .fangCont #slide .hd {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  text-align: center;
+  z-index: 9;
+}
+
+#fang .fangCont #slide .hd li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 8px;
+  font-size: 0;
+  background-color: #fff;
+}
+
+#fang .fangCont #slide .hd li.on {
+  background-color: #00ae66;
+}
+
+#fang .fangCont #slide .next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 36px;
+  height: 50px;
+  margin-top: -25px;
+  border-radius: 4px 0 0 4px;
+  background: rgba(0, 0, 0, 0.6) url(../images/next.png) no-repeat center;
+}
+
+#fang .fangCont #slide .prev {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 36px;
+  height: 50px;
+  margin-top: -25px;
+  border-radius: 0 4px 4px 0;
+  background: rgba(0, 0, 0, 0.6) url(../images/prev.png) no-repeat center;
+}
+
+#fang .fangCont .fangInfo {
+  float: left;
+  width: 510px;
+  margin-top: 30px;
+}
+
+#fang .fangCont .fangInfo .maininfo {
+  display: flex;
+  padding: 15px 0;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+
+#fang .fangCont .fangInfo .maininfo span {
+  flex: 1;
+  color: #E4393C;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+  padding: 0 10px;
+  border-right: 1px solid #ccc;
+}
+
+#fang .fangCont .fangInfo .maininfo span:first-child {
+  text-align: left;
+}
+
+#fang .fangCont .fangInfo .maininfo span:last-child {
+  border-right: 0;
+}
+
+#fang .fangCont .fangInfo .ginfo {
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+#fang .fangCont .fangInfo .ginfo label {
+  float: left;
+  width: 100px;
+  color: #333;
+  font-size: 14px;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+#fang .fangCont .fangInfo .ginfo span {
+  float: left;
+  width: 150px;
+  color: #666;
+  font-size: 14px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#fang .fangCont .fangInfo .finfo {
+  height: 30px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+#fang .fangCont .fangInfo .finfo label {
+  float: left;
+  width: 100px;
+  color: #333;
+  font-size: 14px;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+#fang .fangCont .fangInfo .finfo span {
+  float: left;
+  width: 400px;
+  color: #666;
+  font-size: 14px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#fang .fangCont .fangInfo .agent {
+  overflow: hidden;
+  margin-top: 19px;
+}
+
+#fang .fangCont .fangInfo .agent .avatar {
+  float: left;
+  width: 80px;
+  height: 80px;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+#fang .fangCont .fangInfo .agent .avatar img {
+  display: block;
+  width: 60px;
+  height: 80px;
+}
+
+#fang .fangCont .fangInfo .agent .ainfo {
+  float: left;
+  width: 320px;
+}
+
+#fang .fangCont .fangInfo .agent .ainfo span {
+  color: #333;
+  font-size: 14px;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+#fang .fangCont .fangInfo .agent .ainfo p {
+  color: #333;
+  font-size: 14px;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+#fang .fangCont .fangInfo .agent .qrcode {
+  float: left;
+  text-align: center;
+}
+
+#fang .fangCont .fangInfo .agent .qrcode img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+#fang .fangCont .fangInfo .agent .qrcode p {
+  color: #333;
+  font-size: 14px;
+  padding: 0 10px;
+  line-height: 20px;
+}
+
+#fang .fangCont .fangInfo .chat {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 3px;
+  margin-top: 15px;
+  cursor: pointer;
+  background-color: #00ae66;
+}
+
+#fang .fangCont .fangInfo .chat:hover {
+  background-color: #019658;
+}
+
+.attach {
+  background-color: #fff;
+  border-radius: 2px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(13, 3, 9, 0.2);
+}
+
+.attach .head {
+  overflow: hidden;
+  border-bottom: 1px solid #ebebeb;
+  background-color: #fefefe;
+}
+
+.attach .head h2 {
+  float: left;
+  color: #fff;
+  font-size: 18px;
+  line-height: 50px;
+  padding: 0 50px;
+  text-align: center;
+  background-color: #00ae66;
+}
+
+.attach .cont {
+  padding: 20px;
+}
+
+.attach .cont p {
+  color: #666;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.attach .cont img {
+  max-width: 100%;
+}
+
+.pagination {
+  text-align: center;
+  margin: 20px auto 30px;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination li a {
+  color: #333;
+  font-size: 13px;
+  line-height: 24px;
+  padding: 10px;
+}
+
+.pagination li.active a {
+  color: #00ae66;
+}
+
+.pagination li.disable a {
+  color: #999;
+  cursor: not-allowed;
+}
+
+.article {
+  width: 1200px;
+  padding: 30px;
+  margin: 0 auto 50px;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(13, 3, 9, 0.2);
+}
+
+.article .title {
+  color: #333;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+}
+
+.article .info {
+  padding: 15px;
+  text-align: center;
+}
+
+.article .info span {
+  padding: 0 10px;
+  color: #666;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.article .content {
+  color: #333;
+  font-size: 14px;
+  line-height: 24px;
+  word-break: break-all;
+}
+
+.article .content p {
+  margin-bottom: 8px;
+}
+
+.article .content img {
+  max-width: 100%;
+}

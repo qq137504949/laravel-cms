@@ -123,13 +123,9 @@ class BaseController extends Controller
      * @param $file  file名称
      * @return 返回路径
      */
-    public function uploadImg($file,$path='goods')
+    public function uploadImg($file)
     {
-        $imgPath='storage/uploads/'.$path.'/';
-//        $allowed_extensions = ["png", "jpg", "gif","PNG","JPG","JPEG","GIF","jpeg"];
-//        if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
-//            return $this->showMessage('图片格式png,jpg,gif');
-//        }
+        $imgPath='uploadfile/'.Carbon::now()->format('Y').'/'.Carbon::now()->format('md').'/';
         $extension = $file->getClientOriginalExtension();
         $fileName = str_random(10).'.'.$extension;
         $file->move($imgPath, $fileName);
