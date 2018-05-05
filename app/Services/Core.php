@@ -51,8 +51,8 @@ trait Core{
     {
         $data=[
             'content'=>$content,
-            'admin_name'=>Auth::user()->user_name,
-            'admin_id'=>Auth::user()->admin_id,
+            'admin_name'=>\auth('admin')->user()->user_name,
+            'admin_id'=>\auth('admin')->user()->admin_id,
             'ip'=>$this->getIp(),
         ];
         return AdminLog::create($data);

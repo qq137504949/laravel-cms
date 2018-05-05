@@ -18,13 +18,7 @@ class AuthController extends Controller
 
         if(\auth('admin')->attempt(['user_name'=>$post['user_name'],'password'=>$post['password']],1)){
             $user = \auth('admin')->user();
-            $data=[
-                'content'=>'管理员['.$user->user_name.']登录',
-                'admin_name'=>$user->user_name,
-                'admin_id'=>$user->admin_id,
-                'ip'=>$this->getIp(),
-            ];
-            AdminLog::create($data);
+            $this->AdminLog('管理员['.$user->user_name.']登录');
             return redirect('admin');
         }else{
            return redirect('admin/login')->withInput($request->except('password'))->with('msg', '用户名或密码错误');
@@ -33,15 +27,9 @@ class AuthController extends Controller
 
     public function logout()
     {
-        $user = \auth('admin')->user();
-        $data=[
-            'content'=>'管理员['.$user->user_name.']退出登录',
-            'admin_name'=>$user->user_name,
-            'admin_id'=>$user->admin_id,
-            'ip'=>$this->getIp(),
-        ];
-        AdminLog::create($data);
-        \auth('admin')->logout();
+        $user = auth('admin')->user();
+        $this->AdminLog('管理员['.$user->user_name.']退出登录');
+        auth('admin')->logout();
         return redirect('admin/login');
     }
 }

@@ -64,25 +64,7 @@ class BaseController extends Controller
         return 'g-'.date('YmdHi',time()).'-'.($count+1);
 
     }
-    /**
-     * 计算商品编号
-     */
-    public function purchaseSn()
-    {
-        $count = Purchase::whereBetween('created_at',[Carbon::now()->today(),Carbon::now()->tomorrow()])->count();
-        return 'rk-'.date('YmdHi',time()).'-'.($count+1);
 
-    }
-
-    /**
-     * 计算商品编号
-     */
-    public function saleSn()
-    {
-        $count = Sale::whereBetween('created_at',[Carbon::now()->today(),Carbon::now()->tomorrow()])->count();
-        return 'ck-'.date('YmdHi',time()).'-'.($count+1);
-
-    }
 
     /**
      * 正确JSON格式输出
@@ -154,5 +136,18 @@ class BaseController extends Controller
             return asset($imgPath.$fileName);
         }
 
+    }
+    //没有规律的订单号
+    public function orderSn()
+    {
+        return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+    }
+
+    /**
+     * 转换带有url图片 改成绝对路径可删除
+     */
+    public function imgAbsolute($img)
+    {
+        return public_path().'/'.substr($img,strpos($img,'uploadfile'));
     }
 }
