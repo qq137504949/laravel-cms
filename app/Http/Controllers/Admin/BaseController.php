@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Goods;
 use App\Models\Purchase;
+use App\Models\RkOrder;
 use App\Models\Sale;
 use App\Models\System;
 use Carbon\Carbon;
@@ -17,7 +18,7 @@ class BaseController extends Controller
     protected $system;
     public function __construct()
     {
-        $this->system = System::find(1);
+        $this->system = System::first();
         view()->share(['system'=>$this->system]);
     }
 
@@ -55,16 +56,6 @@ class BaseController extends Controller
         return view('admin.message', ['data' => $data]);
     }
 
-    /**
-     * 计算商品编号
-     */
-    public function goodsSn()
-    {
-        $count = Goods::whereBetween('created_at',[Carbon::now()->today(),Carbon::now()->tomorrow()])->count();
-        return 'g-'.date('YmdHi',time()).'-'.($count+1);
-
-    }
-
 
     /**
      * 正确JSON格式输出
@@ -90,7 +81,6 @@ class BaseController extends Controller
         $arr = [];
         $arr['code'] = Config::get('system.SUCCESS');
         $arr['data'] = $data['data'];
-        $arr['msg'] = '成功';
         return response()->json($arr);
     }
 
@@ -103,8 +93,7 @@ class BaseController extends Controller
     {
         $arr = [];
         $arr['code'] = Config::get('system.ERROR');
-        $arr['err'] = $err;
-        $arr['msg'] = '失败';
+        $arr['msg'] = $err;
         return response()->json($arr);
     }
 
@@ -140,6 +129,7 @@ class BaseController extends Controller
     //没有规律的订单号
     public function orderSn()
     {
+
         return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
     }
 

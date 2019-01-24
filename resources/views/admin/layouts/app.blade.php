@@ -17,7 +17,8 @@
     <link href="{{asset('system/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('system/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('system/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
-
+    <link href="{{asset('system/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
+{{--    <link rel="stylesheet" href="{{asset('system/js/layer/theme/layer.css')}}">--}}
 </head>
 
 <body class="gray-bg">
@@ -27,15 +28,25 @@
 <script src="{{asset('system/js/jquery.min.js')}}"></script>
 <script src="{{asset('system/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('system/js/content.js')}}"></script>
-<script src="{{asset('system/js/plugins/layer/layer.min.js')}}"></script>
+{{--<script src="{{asset('system/js/plugins/layer/layer.min.js')}}"></script>--}}
+<script src="{{asset('system/js/layer/layer.js')}}"></script>
 
 <!-- jQuery Validation plugin javascript-->
 <script src="{{asset('system/js/plugins/validate/jquery.validate.min.js')}}"></script>
 <script src="{{asset('system/js/plugins/validate/messages_zh.min.js')}}"></script>
+<script src="{{asset('system/js/plugins/jquery-form/jquery.form.js')}}"></script>
 <!-- Sweet alert -->
 <script src="{{asset('system/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
+
+<script src="{{asset('system/js/plugins/iCheck/icheck.min.js')}}"></script>
+
 <script>
-//    var index = layer.load(0, {
+    $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green',
+        radioClass: 'iradio_square-green',
+    });
+
+    //    var index = layer.load(0, {
 //        shade: [0.4,'#fff'] //0.1透明度的白色背景
 //    });
 //    setTimeout(function () {

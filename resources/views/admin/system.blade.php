@@ -16,7 +16,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">标题：</label>
+                                <label class="col-sm-3 control-label">系统名称：</label>
                                 <div class="col-sm-8">
                                     <input id="title" value="{{isset($system)?$system->title:''}}" name="title" class="form-control required" type="text" aria-required="true" aria-invalid="true" class="error" >
                                 </div>
@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">统计代码：</label>
                                 <div class="col-sm-8">
-                                    <textarea id="tongji"  name="tongji" class="form-control"></textarea>
+                                    <textarea id="tongji"  name="tongji" class="form-control">{{isset($system)?$system->tongji:''}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -46,38 +46,38 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">举报热线：</label>
+                                <label class="col-sm-3 control-label">公司电话：</label>
                                 <div class="col-sm-8">
                                     <input id="mobile"  name="mobile" value="{{isset($system)?$system->mobile:''}}" class="form-control " type="text" aria-required="true" aria-invalid="true" class="error" >
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">投诉热线：</label>
-                                <div class="col-sm-8">
-                                    <input id="phone"  name="phone" value="{{isset($system)?$system->phone:''}}" class="form-control " type="text" aria-required="true" aria-invalid="true" class="error" >
-                                </div>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label class="col-sm-3 control-label">投诉热线：</label>--}}
+                                {{--<div class="col-sm-8">--}}
+                                    {{--<input id="phone"  name="phone" value="{{isset($system)?$system->phone:''}}" class="form-control " type="text" aria-required="true" aria-invalid="true" class="error" >--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">地址：</label>
                                 <div class="col-sm-8">
                                     <input id="address"  name="address" value="{{isset($system)?$system->address:''}}" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" >
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">E-mail：</label>
-                                <div class="col-sm-8">
-                                    <input id="email"  name="email" value="{{isset($system)?$system->email:''}}" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Logo：</label>
-                                <div class="col-sm-8">
-                                    <input id="logo"  name="logo"  class="form-control" type="file" aria-required="true" aria-invalid="true" class="error" >
-                                    @if(isset($system))
-                                    <img src="{{asset($system->logo)}}" width="64" alt="">
-                                        @endif
-                                </div>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label class="col-sm-3 control-label">E-mail：</label>--}}
+                                {{--<div class="col-sm-8">--}}
+                                    {{--<input id="email"  name="email" value="{{isset($system)?$system->email:''}}" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" >--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="form-group">--}}
+                                {{--<label class="col-sm-3 control-label">Logo：</label>--}}
+                                {{--<div class="col-sm-8">--}}
+                                    {{--<input id="logo"  name="logo"  class="form-control" type="file" aria-required="true" aria-invalid="true" class="error" >--}}
+                                    {{--@if(isset($system))--}}
+                                    {{--<img src="{{asset($system->logo)}}" width="64" alt="">--}}
+                                        {{--@endif--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             {{csrf_field()}}
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-3">
@@ -130,24 +130,30 @@
                         required:icon+'密码不能为空',
                         minength:icon+'密码长度大于6个字符'
                     },
+                },
+                submitHandler:function (form) {
+                    var index = layer.load(1);
+                    $(form).ajaxSubmit({
+                        dataType:"json",
+                        success:function (res) {
+                            if(res && res.code == 0){
+                                layer.close(index);
+                                layer.msg("保存成功");
+                                setTimeout(function(){
+                                    window.location.reload(); //刷新父页面
+                                },500)
+                            }else{
+                                layer.close(index);
+                                layer.msg(res.msg);
+                            }
+                        }
+                    })
                 }
             });
-
-
-            @if(count($errors)>0)
-            @foreach($errors->all() as $error)
-            layer.msg('{{$error}}', {icon: 5});
-            @endforeach
-            @endif
-        })
-
-
-    </script><script>
-        $().ready(function () {
-            $("#roleForm").validate();
 
         })
 
 
     </script>
+
 @endsection

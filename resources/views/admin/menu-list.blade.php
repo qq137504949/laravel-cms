@@ -9,7 +9,7 @@
                     </div>
                     <div class="ibox-content">
                         <div class="col-sm-9">
-                            <a  href="{{url('admin/menu/create')}}" class="btn btn-info ">添加菜单</a>
+                            <a  href="javascript:void(0)" onclick="add()" class="btn btn-info ">添加菜单</a>
                         </div>
                         <div class="col-sm-3">
                             <form action="menu" method="get" id="cheacform">
@@ -46,7 +46,7 @@
                                 <td><i class="fa {{$item->menu_icon}}"></i></td>
                                 <td>{{$item->menu_link}}</td>
 
-                                <td><a  class="delete" data="{{$item->menu_id}}" ><i class="glyphicon glyphicon-trash" ></i> 删除</a> | <a href="{{asset('admin/menu')}}/{{$item->menu_id}}/edit"><i class="glyphicon glyphicon-edit"></i> 修改</a> </td>
+                                <td><a  class="delete" data="{{$item->menu_id}}" ><i class="glyphicon glyphicon-trash" ></i> 删除</a> | <a href="javascript:void(0)" onclick="edit({{$item->menu_id}})"><i class="glyphicon glyphicon-edit"></i> 修改</a> </td>
                             </tr>
                             @endforeach
 
@@ -77,6 +77,27 @@
 @section('my-script')
 
 <script>
+
+
+function add() {
+    layer.open({
+        type: 2,
+        title:'添加',
+        maxmin: true, //开启最大化最小化按钮
+        area: ['90%', '90%'], //宽高
+        content: '{{url('admin/menu/create')}}'
+    });
+}
+
+function edit(id) {
+    layer.open({
+        type: 2,
+        title:'修改',
+        maxmin: true, //开启最大化最小化按钮
+        area: ['90%', '90%'], //宽高
+        content: '{{url('admin/menu')}}/'+id+'/edit'
+    });
+}
 
     $('.delete').click(function () {
         var _this = this;

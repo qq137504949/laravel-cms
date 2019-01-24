@@ -17,7 +17,7 @@ class Gadmin extends Model
     {
         $arr = explode(',',$this->limits);
         if($arr){
-            $menus = Menu::whereIn('menu_id',$arr)->get()->toArray();
+            $menus = Menu::whereIn('menu_id',$arr)->orderBy('sort')->get()->toArray();
             return $this->createMenuDiGui($menus);
         }
         return null;

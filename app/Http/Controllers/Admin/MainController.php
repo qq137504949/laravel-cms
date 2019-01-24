@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Doc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
@@ -18,7 +19,6 @@ class MainController extends BaseController
 
     public function zhuye()
     {
-        //dd(Auth::user());
         return view('admin.zhuye');
     }
 }

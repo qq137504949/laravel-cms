@@ -3,13 +3,7 @@
 @section('content')
 <div class="wrapper wrapper-content">
     <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h3>角色管理</h3>
-            <ol class="breadcrumb">
-                <li><a href="{{asset('admin/role')}}">角色列表</a></li>
-                <li><strong class="text-muted">添加角色</strong></li>
-            </ol>
-        </div>
+
         <div class="ibox-content">
             <form action="{{asset('admin/role')}}" method="post" class="form-horizontal m-t" id="roleForm">
                 <div class="form-group">
@@ -39,8 +33,27 @@
                    gname:{
                        required:true,
                        minlength:2
-                   }
-               }
+                   },
+
+               },
+                submitHandler:function (form) {
+                    var index = layer.load(1);
+                    $(form).ajaxSubmit({
+                        dataType:"json",
+                        success:function (res) {
+                            if(res && res.code == 0){
+                                layer.close(index);
+                                layer.msg("保存成功");
+                                setTimeout(function(){
+                                    window.parent.location.reload(); //刷新父页面
+                                },500)
+                            }else{
+                                layer.close(index);
+                                layer.msg(res.msg);
+                            }
+                        }
+                    })
+                }
             });
         })
     </script>

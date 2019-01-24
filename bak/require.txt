@@ -6,10 +6,35 @@ composer require latrell/alipay           //支付宝
 php artisan vendor:publish --provider="Latrell\Alipay\AlipayServiceProvider"
 
 
-composer require overtrue/laravel-wechat
+composer require overtrue/wechat
 
 
 php artisan vendor:publish --provider="Overtrue\LaravelWechat\ServiceProvider"
 
 
-composer require overtrue/laravel-wechat 2.1.*
+composer require flc/laravel-middleware-cache-response   //缓存
+
+composer require maatwebsite/excel ~2.1
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
+
+
+
+CREATE TABLE `cb_production_temp_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) DEFAULT '0' COMMENT '生成订单ID',
+  `goods_name` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商品名称',
+  `spec` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '规格',
+  `unit` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '单位',
+  `number` int(11) DEFAULT '0' COMMENT '数量',
+  `price` decimal(10,2) DEFAULT '0.00' COMMENT '单价',
+  `total_price` decimal(10,2) DEFAULT '0.00' COMMENT '总价',
+  `desc` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
+  `sn` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '编号',
+  `ck_num` int(11) DEFAULT '0' COMMENT '预备出库数量',
+  `yc_num` int(11) DEFAULT '0' COMMENT '已出库数量',
+  `supplier_id` int(11) DEFAULT '0' COMMENT '供应商ID',
+  `supplier_name` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '供应商名称',
+  `supplier_mobile` varchar(12) COLLATE utf8_bin DEFAULT NULL COMMENT '供应商电话',
+  `supplier_address` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '供应商地址',
+  PRIMARY KEY (`id`)
+)

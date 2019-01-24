@@ -12,6 +12,24 @@
 */
 
 
-Route::get('/', function (){
-    return view('welcome');
+Route::get('/',function (){
+   return Redirect::to('admin');
 });
+
+Route::group(['middleware'=>['cache.response']],function () {
+//    Route::get('/', 'HomeController@index');
+//    Route::post('email','HomeController@sendEmail');
+//    Route::any('wechat','WxController@index');
+});
+
+
+
+//Route::any('menu','WxController@menu');
+
+//Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+//    Route::get('/user', function () {
+//        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+//
+//        dd($user);
+//    });
+//});

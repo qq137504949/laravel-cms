@@ -10,7 +10,7 @@
                     </div>
                     <div class="ibox-content">
                         <div class="col-sm-9">
-                            <a class="btn btn-info" href="{{asset('admin/role/create')}}">添加角色</a>
+                            <a class="btn btn-info" href="javascript:void(0)" onclick="add()" >添加角色</a>
                         </div>
                         <div class="col-sm-3">
                             <form action="role" method="get" id="keywords-form">
@@ -36,8 +36,8 @@
                                 <td>{{$role->gid}}</td>
                                 <td>{{$role->gname}}</td>
                                 <td>
-                                    <a href="{{asset('admin/privilege')}}/{{$role->gid}}" ><i class="glyphicon glyphicon-list"></i>设置权限 </a>
-                                    |<a href="{{asset('admin/role')}}/{{$role->gid}}/edit" ><i class="glyphicon glyphicon-edit"></i>修改 </a>
+                                    <a href="javascript:void(0);" onclick="privilege({{$role->gid}})" ><i class="glyphicon glyphicon-list"></i>设置权限 </a>
+                                    |<a href="javascript:void(0)" onclick="edit({{$role->gid}})" ><i class="glyphicon glyphicon-edit"></i>修改 </a>
                                     |<a href="javascript:void(0)" class="delete" data="{{$role->gid}}" ><i class="glyphicon glyphicon-trash"></i>删除 </a>
                                 </td>
                             </tr>
@@ -70,6 +70,36 @@
 
     <script>
 
+        function privilege(id) {
+            layer.open({
+                type: 2,
+                title:'设置权限',
+                maxmin: true, //开启最大化最小化按钮
+                area: ['90%', '90%'], //宽高
+                content: '{{url('admin/privilege')}}/'+id
+            });
+        }
+
+
+        function add() {
+            layer.open({
+                type: 2,
+                title:'添加',
+                maxmin: true, //开启最大化最小化按钮
+                area: ['50%', '50%'], //宽高
+                content: '{{url('admin/role/create')}}'
+            });
+        }
+
+        function edit(id) {
+            layer.open({
+                type: 2,
+                title:'修改',
+                maxmin: true, //开启最大化最小化按钮
+                area: ['90%', '90%'], //宽高
+                content: '{{url('admin/role')}}/'+id+'/edit'
+            });
+        }
         $('.delete').click(function () {
             var _this = this;
             swal({

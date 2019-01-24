@@ -21,7 +21,7 @@ class Menu
     {
         $admin = Auth::user();
         if($admin->admin_is_super == 1){
-            $menus = \App\Models\Menu::get()->toArray();
+            $menus = \App\Models\Menu::orderBy('sort')->get()->toArray();
             //数据整理
             $menus = $this->createMenuDiGui($menus);
         }else{

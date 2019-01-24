@@ -3,19 +3,7 @@
 @section('content')
     <div class="wrapper wrapper-content ">
         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <div class="col-sm-4">
-                    <h3>菜单管理</h3>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="{{asset('admin/menu')}}">菜单列表</a>
-                        </li>
-                        <li>
-                            <strong class="text-muted">添加菜单</strong>
-                        </li>
-                    </ol>
-                </div>
-            </div>
+
             <div class="ibox-content">
                 <form  action="{{asset('admin/menu')}}" method="post" class="form-horizontal m-t" id="roleForm" >
                     <div class="form-group">
@@ -61,6 +49,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="col-sm-3 control-label">排序：</label>
+                        <div class="col-sm-8">
+                            <input id="sort"  name="sort" class="form-control" type="text"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-3">
                             <button class="btn btn-primary" type="submit">提交</button>
                         </div>
@@ -72,4 +67,50 @@
         </div>
     </div>
 
+@endsection
+@section("my-script")
+    <script>
+        $().ready(function () {
+            var icon = "<i class='fa fa-times-circle'></i> ";
+            $("#roleForm").validate({
+                rules:{
+                    menu_name:{
+                        required:true,
+                    },
+                    sort:{
+                        required:true,
+                        number:true
+                    }
+
+                },
+                messages:{
+                    menu_name:{
+                        required:icon+"请填写菜单名称",
+                    },
+
+                },
+                submitHandler:function (form) {
+                    var index = layer.load(1);
+                    $(form).ajaxSubmit({
+                        dataType:"json",
+                        success:function (res) {
+                            if(res && res.code == 0){
+                                layer.close(index);
+                                layer.msg("保存成功");
+                                setTimeout(function(){
+                                    window.parent.location.reload(); //刷新父页面
+                                },500)
+                            }else{
+                                layer.close(index);
+                                layer.msg(res.msg);
+                            }
+                        }
+                    })
+                }
+            });
+
+        })
+
+
+    </script>
 @endsection

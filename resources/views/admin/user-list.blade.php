@@ -9,7 +9,7 @@
                     </div>
                     <div class="ibox-content">
                         <div class="col-sm-9">
-                            <a  href="{{url('admin/user/create')}}" class="btn btn-info ">添加管理员</a>
+                            <a  href="javascript:void(0)" onclick="add()" class="btn btn-info ">添加管理员</a>
                         </div>
                         <div class="col-sm-3">
                             <form action="user" method="get" id="cheacform">
@@ -30,6 +30,8 @@
                                 <th>ID</th>
                                 <th>用户名</th>
                                 <th>邮箱</th>
+                                <th>姓名</th>
+                                <th>电话</th>
                                 <th>最后一次登录时间</th>
                                 <th>角色</th>
                                 <th>操作</th>
@@ -41,6 +43,8 @@
                                     <td>{{$item->admin_id}}</td>
                                     <td>{{$item->user_name}}</td>
                                     <td>{{$item->email}}</td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->mobile}}</td>
                                     <td>{{$item->updated_at}}</td>
                                     <td>{{$item->admin_gid?$item->Gadmin->gname:'超级管理员'}}</td>
 
@@ -49,7 +53,7 @@
                                         @if($item->admin_is_super == 1)
                                             禁止删除
                                         @else
-                                            <a  class="delete" data="{{$item->admin_id}}" ><i class="glyphicon glyphicon-trash" ></i> 删除</a> | <a href="{{asset('admin/user')}}/{{$item->admin_id}}/edit"><i class="glyphicon glyphicon-edit"></i> 修改</a>
+                                            <a  class="delete" data="{{$item->admin_id}}" ><i class="glyphicon glyphicon-trash" ></i> 删除</a> | <a href="javascript:void(0)" onclick="edit({{$item->admin_id}})"><i class="glyphicon glyphicon-edit"></i> 修改</a>
                                         @endif
                                     </td>
                                 </tr>
@@ -83,6 +87,26 @@
 @section('my-script')
 
     <script>
+
+        function add() {
+            layer.open({
+                type: 2,
+                title:'添加',
+                maxmin: true, //开启最大化最小化按钮
+                area: ['90%', '90%'], //宽高
+                content: '{{url('admin/user/create')}}'
+            })
+        }
+
+        function edit(id) {
+            layer.open({
+                type: 2,
+                title:'修改',
+                maxmin: true, //开启最大化最小化按钮
+                area: ['90%', '90%'], //宽高
+                content: '{{url('admin/user')}}/'+id+'/edit'
+            })
+        }
 
         $('.delete').click(function () {
             var _this = this;

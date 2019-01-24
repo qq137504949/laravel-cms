@@ -3,19 +3,7 @@
 @section('content')
 <div class="wrapper wrapper-content ">
     <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <div class="col-sm-4">
-                <h3>菜单管理</h3>
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="{{asset('admin/user')}}">用户列表</a>
-                    </li>
-                    <li>
-                        <strong class="text-muted">添加用户</strong>
-                    </li>
-                </ol>
-            </div>
-        </div>
+
         <div class="ibox-content">
             <form  action="{{asset('admin/user')}}" method="post" class="form-horizontal m-t" id="roleForm" >
                 <div class="form-group">
@@ -29,6 +17,18 @@
                     <label class="col-sm-3 control-label">Email(邮箱)：</label>
                     <div class="col-sm-8">
                         <input id="email"  name="email" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">姓名：</label>
+                    <div class="col-sm-8">
+                        <input id="name"  name="name" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">电话：</label>
+                    <div class="col-sm-8">
+                        <input id="mobile"  name="mobile" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" >
                     </div>
                 </div>
                 <div class="form-group">
@@ -85,6 +85,13 @@ $().ready(function () {
             },
             admin_gid:{
                 required:true,
+            },
+            mobile:{
+                required:true,
+                number:true,
+            },
+            name:{
+                required:true,
             }
 
         },
@@ -97,15 +104,28 @@ $().ready(function () {
                 required:icon+'密码不能为空',
                 minength:icon+'密码长度大于6个字符'
             },
+        },
+        submitHandler:function (form) {
+            var index = layer.load(1);
+            $(form).ajaxSubmit({
+                dataType:"json",
+                success:function (res) {
+                    if(res && res.code == 0){
+                        layer.close(index);
+                        layer.msg("保存成功");
+                        setTimeout(function(){
+                            window.parent.location.reload(); //刷新父页面
+                        },500)
+                    }else{
+                        layer.close(index);
+                        layer.msg(res.msg);
+                    }
+                }
+            })
         }
     });
 
 
-    @if(count($errors)>0)
-    @foreach($errors->all() as $error)
-    layer.msg('{{$error}}', {icon: 5});
-    @endforeach
-    @endif
 })
 
 

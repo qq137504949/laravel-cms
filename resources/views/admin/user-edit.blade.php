@@ -3,19 +3,7 @@
 @section('content')
     <div class="wrapper wrapper-content ">
         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <div class="col-sm-4">
-                    <h3>用户管理</h3>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="{{asset('admin/user')}}">用户列表</a>
-                        </li>
-                        <li>
-                            <strong class="text-muted">编辑用户</strong>
-                        </li>
-                    </ol>
-                </div>
-            </div>
+
             <div class="ibox-content">
                 <form  action="{{asset('admin/user')}}/{{$user->admin_id}}" method="post" class="form-horizontal m-t" id="roleForm" >
                     <div class="form-group">
@@ -31,6 +19,18 @@
                         <div class="col-sm-8">
                             <input id="email" value="{{$user->email}}"  name="email" class="form-control" type="text" aria-required="true" aria-
                                    invalid="true" class="error" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">姓名：</label>
+                        <div class="col-sm-8">
+                            <input id="name"  name="name" value="{{$user->name}}" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">电话：</label>
+                        <div class="col-sm-8">
+                            <input id="mobile"  name="mobile" value="{{$user->mobile}}" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" >
                         </div>
                     </div>
 
@@ -86,6 +86,14 @@
                     },
                     admin_gid:{
                         required:true,
+                    },
+                    mobile:{
+                        required:true,
+                        number:true,
+
+                    },
+                    name:{
+                        required:true,
                     }
 
                 },
@@ -98,6 +106,24 @@
                         required:icon+'密码不能为空',
                         minength:icon+'密码长度大于6个字符'
                     },
+                },
+                submitHandler:function (form) {
+                    var index = layer.load(1);
+                    $(form).ajaxSubmit({
+                        dataType:"json",
+                        success:function (res) {
+                            if(res && res.code == 0){
+                                layer.close(index);
+                                layer.msg("保存成功");
+                                setTimeout(function(){
+                                    window.parent.location.reload(); //刷新父页面
+                                },500)
+                            }else{
+                                layer.close(index);
+                                layer.msg(res.msg);
+                            }
+                        }
+                    })
                 }
             })
         })

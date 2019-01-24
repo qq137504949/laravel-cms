@@ -67,12 +67,13 @@ class MenuController extends BaseController
 
     public function update(Menu $menu,Request $request){
         $post = $request->input();
+//        dd($post);
         //日志
         $this->AdminLog('['.Auth::user()->user_name.']修改菜单-'.$menu->menu_name.'->'.$post['menu_name']);
         if($menu->update($post)){
-            return $this->showMessage('修改成功','admin/menu');
+            return $this->output_data("修改成功");
         }
-        return $this->showMessage('修改失败');
+        return $this->output_error('修改失败');
 
 
     }

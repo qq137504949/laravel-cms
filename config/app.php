@@ -179,6 +179,8 @@ return [
 
         Cyvelnet\Laravel5Fractal\Laravel5FractalServiceProvider::class, //数据格式化
         Zhangmazi\Ueditor\UeditorServiceProivder::class,
+        Overtrue\LaravelWeChat\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,//excel导出
 
 //        Yansongda\LaravelPay\PayServiceProvider::class,
     ],
@@ -230,6 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Fractal'=>Cyvelnet\Laravel5Fractal\Facades\Fractal::class, //数据格式化
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,//excel
 
     ],
 

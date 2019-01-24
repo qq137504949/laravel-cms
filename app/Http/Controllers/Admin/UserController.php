@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends BaseController
 {
@@ -36,7 +37,8 @@ class UserController extends BaseController
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $post = $request->input();
+        $validator = Validator::make($post,[
             'user_name'=>'unique:admin',
             'email'=>'email|unique:admin',
         ],[
@@ -44,12 +46,16 @@ class UserController extends BaseController
             'email.unique'=>'邮箱不能重复'
         ]);
 
-        $post = $request->input();
+        if($validator->fails()){
+            return $this->output_error($validator->messages()->first());
+        }
+
+
         $post['password'] = bcrypt($post['password']);
         if(Admin::create($post)){
-            return $this->showMessage("保存成功",'admin/user');
+            return $this->output_data("保存成功");
         }
-        return $this->showMessage("保存错误");
+        return $this->output_error("保存错误");
 
     }
 
@@ -73,9 +79,9 @@ class UserController extends BaseController
     {
         $post = $request->input();
         if($user->update($post)){
-            return $this->showMessage("更新成功",'admin/user');
+            return $this->output_data("更新成功");
         }
-        return $this->showMessage("更新失败");
+        return $this->output_error("更新失败");
     }
 
     public function userPwd()

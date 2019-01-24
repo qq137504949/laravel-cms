@@ -34,7 +34,7 @@ class GadminController extends BaseController
     {
         if(Gadmin::create($request->input())){
             $this->AdminLog('['.Auth::user()->user_name.']创建角色-'.$request->input('gname'));
-            return $this->showMessage("保存成功",'admin/role');
+            return $this->output_data("保存成功");
         }
 
     }
@@ -49,7 +49,7 @@ class GadminController extends BaseController
         $post = $request->input();
         $this->AdminLog('['.Auth::user()->user_name.']修改角色-'.$role->gname.'->'.$post['gname']);
         if($role->update($post)){
-            return $this->showMessage("修改成功",'admin/role');
+            return $this->output_data("修改成功");
         }
 
     }
@@ -90,7 +90,7 @@ class GadminController extends BaseController
         $role->limits = $limits;
         if($role->update()){
             $this->AdminLog('['.Auth::user()->user_name.']修改权限-'.$role->gname.'->['.$limits.']');
-            return $this->showMessage("设置成功",'admin/role');
+            return $this->output_data("设置成功");
         }
     }
 

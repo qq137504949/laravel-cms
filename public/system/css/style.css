@@ -7950,3 +7950,37 @@ body.skin-3 {
 [v-cloak] {
     display: none;
 }
+
+/*弹窗*/
+
+.tag {
+    /*position: relative;*/
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #0f0f0f;
+    opacity: 0.5;
+    filter: alpha(opacity=40);
+    z-index: 5;
+
+}
+
+.add-goods {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    width: 50%;
+    height: 70%;
+    z-index:6;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0
+}

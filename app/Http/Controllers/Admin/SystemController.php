@@ -25,7 +25,7 @@ class SystemController extends BaseController
                 //判断图片格式
                 $allowed_extensions = ["png", "jpg", "gif","PNG","JPG","JPEG","GIF","jpeg"];
                 if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
-                    return $this->showMessage('图片格式png,jpg,gif,jpeg');
+                    return $this->output_data('图片格式png,jpg,gif,jpeg');
                 }
                 $post['logo'] = $this->uploadImg($file,'logo');
                 $logo= public_path().'/'.$system->logo;
@@ -35,7 +35,7 @@ class SystemController extends BaseController
                 }
             }
             if($system->update($post)){
-                return $this->showMessage("保存成功");
+                return $this->output_data("保存成功");
             }
         }else{
             if($file = $request->file('logo')){
@@ -43,10 +43,9 @@ class SystemController extends BaseController
             }
             //保存
             if(System::create($post)){
-
-                return $this->showMessage("保存成功");
+                return $this->output_data("保存成功");
             }
         }
-        return $this->showMessage("保存失败，请重试");
+        return $this->output_error("保存失败，请重试");
     }
 }

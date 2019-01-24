@@ -3,16 +3,8 @@
 @section('content')
     <div class="wrapper wrapper-content">
         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <div class="col-sm-4">
-                    <h3>设置权限</h3>
-                    <ol class="breadcrumb">
-                        <li><a href="{{asset('admin/role')}}">权限列表</a></li>
-                        <li><strong class="text-muted">修改权限</strong></li>
-                    </ol>
-                </div>
-            </div>
-            <form action="{{asset('admin/privilege')}}/{{$role->gid}}" method="post">
+
+            <form action="{{asset('admin/privilege')}}/{{$role->gid}}" method="post" id="roleForm">
                 @foreach($menus as $item)
                 <div class="ibox-content">
 
@@ -62,6 +54,8 @@
     <script>
         $(document).ready(function () {
 
+
+
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
@@ -101,6 +95,28 @@
                     }
                 }, 50)
             })
+
+
+            $('#roleForm').validate({
+                submitHandler:function (form) {
+                    var index = layer.load(1);
+                    $(form).ajaxSubmit({
+                        dataType:"json",
+                        success:function (res) {
+                            if(res && res.code == 0){
+                                layer.close(index);
+                                layer.msg("保存成功");
+                                setTimeout(function(){
+                                    window.parent.location.reload(); //刷新父页面
+                                },500)
+                            }else{
+                                layer.close(index);
+                                layer.msg(res.msg);
+                            }
+                        }
+                    })
+                }
+            });
         });
     </script>
 @endsection

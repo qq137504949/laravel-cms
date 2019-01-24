@@ -16,7 +16,7 @@ class AuthController extends Controller
     {
         $post = $request->input();
 
-        if(\auth('admin')->attempt(['user_name'=>$post['user_name'],'password'=>$post['password']],1)){
+        if(\auth('admin')->attempt(['user_name'=>$post['user_name'],'password'=>$post['password']],$request->input('remember',0))){
             $user = \auth('admin')->user();
             $this->AdminLog('管理员['.$user->user_name.']登录');
             return redirect('admin');
