@@ -58,7 +58,7 @@
                     @if(isset($item['erji']))
                     <ul class="nav nav-second-level">
                         @foreach($item['erji'] as $value)
-                        <li><a class="J_menuItem" href="{{$value['menu_link']}}">{{$value['menu_name']}}</a>
+                        <li><a class="J_menuItem" href="{{asset($value['menu_link'])}}">{{$value['menu_name']}}</a>
                         </li>
                             @endforeach
                     </ul>

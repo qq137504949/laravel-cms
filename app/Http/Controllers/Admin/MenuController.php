@@ -38,10 +38,10 @@ class MenuController extends BaseController
             $this->AdminLog('['.Auth::user()->user_name.']创建菜单-'.$post['menu_name']);
 
             //日志结束
-            return $this->showMessage('保存成功！','admin/menu');
+            return $this->output_data('保存成功！');
         }
 
-        return $this->showMessage('保存失败！');
+        return $this->output_error('保存失败！');
     }
 
     public function destroy(Menu $menu)
