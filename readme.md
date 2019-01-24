@@ -6,7 +6,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel-cms-1.0版本
+## About Laravel-cms-2.0版本
 
 复制一份.nev 修改数据库配置文件
 
@@ -16,7 +16,7 @@ cp .env.example .env
 
 .env文件添加数据库前缀
 
-DB_PREFIX=fang_
+DB_PREFIX=cms_
 
 
 
@@ -30,7 +30,7 @@ composer  install
 php artisan key:generate
 ```
 
-数据库文件存在 bak/fang.sql  
+数据库文件存在 bak/cms.sql  
 
 
 ## 功能介绍
